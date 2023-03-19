@@ -43,11 +43,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\Characters\ICharacter.cs" />
+    <Compile Include="Interfaces\Characters\IPlayerCharacter.cs" />
+    <Compile Include="Interfaces\IInventory.cs" />
+    <Compile Include="Interfaces\IQuest.cs" />
+    <Compile Include="Interfaces\IShop.cs" />
+    <Compile Include="Interfaces\Items\IArmor.cs" />
+    <Compile Include="Interfaces\Items\IItem.cs" />
+    <Compile Include="Interfaces\Items\IWeapon.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
