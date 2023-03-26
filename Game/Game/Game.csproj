@@ -43,11 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Enemy.cs" />
+    <Compile Include="Classes\MainGame.cs" />
+    <Compile Include="Classes\Player.cs" />
+    <Compile Include="Interfaces\Characters\IAttackable.cs" />
     <Compile Include="Interfaces\Characters\ICharacter.cs" />
-    <Compile Include="Interfaces\Characters\IPlayerCharacter.cs" />
-    <Compile Include="Interfaces\IInventory.cs" />
-    <Compile Include="Interfaces\IQuest.cs" />
-    <Compile Include="Interfaces\IShop.cs" />
+    <Compile Include="Interfaces\Characters\IEnemy.cs" />
+    <Compile Include="Interfaces\Characters\IPlayer.cs" />
+    <Compile Include="Interfaces\Other\IGame.cs" />
+    <Compile Include="Interfaces\Other\IInventory.cs" />
+    <Compile Include="Interfaces\Other\IQuest.cs" />
+    <Compile Include="Interfaces\Other\IShop.cs" />
     <Compile Include="Interfaces\Items\IArmor.cs" />
     <Compile Include="Interfaces\Items\IItem.cs" />
     <Compile Include="Interfaces\Items\IWeapon.cs" />

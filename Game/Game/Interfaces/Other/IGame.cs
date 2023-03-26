@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Game.Interfaces.Items
+namespace Game.Interfaces.Other
 {
-    interface IArmor : IItem
+    interface IGame
     {
-        int Defense { get; set; }
+        void Start();
+        void End();
     }
 }

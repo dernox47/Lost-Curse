@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Game.Interfaces.Characters;
 
 namespace Game.Interfaces.Items
 {
@@ -12,6 +13,7 @@ namespace Game.Interfaces.Items
         string Description { get; set; }
         int Value { get; set; }
         string Rarity { get; set; }
+        void Use(IPlayer player);
         bool CanBeSold { get; set; }
     }
 }
