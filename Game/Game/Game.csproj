@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Apple.cs" />
+    <Compile Include="Classes\Bread.cs" />
     <Compile Include="Classes\Enemy.cs" />
     <Compile Include="Classes\MainGame.cs" />
     <Compile Include="Classes\Player.cs" />
