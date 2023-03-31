@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Game.Interfaces.Items;
 using Game.Interfaces.Characters;
 
-namespace Game
+namespace Game.Classes.Items
 {
     class Apple : IItem
     {

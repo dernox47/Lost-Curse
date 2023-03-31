@@ -34,6 +34,7 @@ namespace Game.Classes
         {
             player.TakeDamage(Atk);
         }
+
         public void TakeDamage(int damage)
         {
             Hp -= damage;
@@ -42,10 +43,12 @@ namespace Game.Classes
                 Hp = 0;
             }
         }
+
         public bool IsAlive()
         {
             return Hp > 0;
         }
+
         public override string ToString()
         {
             return $"{Name}\n" +

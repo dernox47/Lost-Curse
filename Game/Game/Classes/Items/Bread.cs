@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using Game.Interfaces.Items;
 using Game.Interfaces.Characters;
 
-namespace Game.Classes
+namespace Game.Classes.Items
 {
-    class Bread
+    class Bread : IItem
     {
         public string Name { get; set; }
         public string Description { get; set; }
@@ -33,8 +33,6 @@ namespace Game.Classes
             {
                 player.Hp = player.MaxHp;
             }
-
-
         }
     }
 }
