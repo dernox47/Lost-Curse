@@ -1,0 +1,7 @@
+C:\Users\User\Downloads\menu_first_ver\attempt_at_art\attempt_at_art\bin\Debug\attempt_at_art.exe.config
+C:\Users\User\Downloads\menu_first_ver\attempt_at_art\attempt_at_art\bin\Debug\attempt_at_art.exe
+C:\Users\User\Downloads\menu_first_ver\attempt_at_art\attempt_at_art\bin\Debug\attempt_at_art.pdb
+C:\Users\User\Downloads\menu_first_ver\attempt_at_art\attempt_at_art\obj\Debug\attempt_at_art.csproj.AssemblyReference.cache
+C:\Users\User\Downloads\menu_first_ver\attempt_at_art\attempt_at_art\obj\Debug\attempt_at_art.csproj.CoreCompileInputs.cache
+C:\Users\User\Downloads\menu_first_ver\attempt_at_art\attempt_at_art\obj\Debug\attempt_at_art.exe
+C:\Users\User\Downloads\menu_first_ver\attempt_at_art\attempt_at_art\obj\Debug\attempt_at_art.pdb
