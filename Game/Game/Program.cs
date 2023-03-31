@@ -18,8 +18,6 @@ namespace Game
             game.Start();
 
 
-
-
             Console.ReadKey();
         }
     }

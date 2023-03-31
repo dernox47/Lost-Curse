@@ -15,7 +15,7 @@ namespace Game.Classes
         public int Atk { get; set; }
         public int Def { get; set; }
         public int Level { get; set; }
-        public int Experience { get; set; }
+        public int Exp { get; set; }
         public int Gold { get; set; }
 
         public Enemy(string name, int hp, int maxhp, int atk, int def, int level, int exp, int gold)
@@ -26,7 +26,7 @@ namespace Game.Classes
             Atk = atk;
             Def = def;
             Level = level;
-            Experience = exp;
+            Exp = exp;
             Gold = gold;
         }
 
@@ -56,7 +56,7 @@ namespace Game.Classes
                 $"ATK:\t{Atk}\n" +
                 $"DEF:\t{Def}\n" +
                 $"Szint:\t{Level}\n" +
-                $"EXP:\t{Experience}\n" +
+                $"EXP:\t{Exp}\n" +
                 $"Arany:\t{Gold}";
         }
     }

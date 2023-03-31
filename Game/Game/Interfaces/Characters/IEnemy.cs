@@ -9,7 +9,7 @@ namespace Game.Interfaces.Characters
     interface IEnemy : ICharacter
     {
         int Level { get; set; }
-        int Experience { get; set; }
+        int Exp { get; set; }
         int Gold { get; set; }
         void Attack(IPlayer player);
         void TakeDamage(int damage);

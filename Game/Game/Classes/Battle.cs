@@ -27,6 +27,10 @@ namespace Game.Classes
                 if (!Enemy.IsAlive())
                 {
                     Console.WriteLine($"Nyertél! A(z) {Enemy.Name} meghalt.");
+                    Player.GainExp(Enemy.Exp);
+                    Player.GainGold(Enemy.Gold);
+                    Console.WriteLine($"\n{Player.ToString()}");
+
                     break;
                 }
 

@@ -15,7 +15,8 @@ namespace Game.Classes
         public int Atk { get; set; }
         public int Def { get; set; }
         public int Level { get; set; }
-        public int Experience { get; set; }
+        public int Exp { get; set; }
+        public int MaxExp { get; set; }
         public int Gold { get; set; }
 
         public Player(string name)
@@ -26,7 +27,8 @@ namespace Game.Classes
             Atk = 10;
             Def = 0;
             Level = 1;
-            Experience = 0;
+            Exp = 0;
+            MaxExp = 100;
             Gold = 0;
         }
 
@@ -43,9 +45,19 @@ namespace Game.Classes
                 Hp = 0;
             }
         }
-        public void GainExperience(int amount)
+        public void GainExp(int amount)
         {
-            Experience += amount;
+            Exp += amount;
+
+            while (Exp >= MaxExp)
+            {
+                Level++;
+                MaxExp += 100;
+                MaxHp += 10;
+                Atk += 2;
+                Hp = MaxHp;
+                Console.WriteLine($"Szintet léptél! [Szint {Level}]");
+            }
         }
 
         public void GainGold(int amount)
@@ -53,7 +65,7 @@ namespace Game.Classes
             Gold += amount;
         }
 
-        public void LevelUp()
+        public void LevelUp() // Lehet nem fog kelleni, de benthagyom. (SzA)
         {
             Level += 1;
         }
@@ -70,7 +82,7 @@ namespace Game.Classes
                 $"ATK:\t{Atk}\n" +
                 $"DEF:\t{Def}\n" +
                 $"Szint:\t{Level}\n" +
-                $"EXP:\t{Experience}\n" +
+                $"EXP:\t{Exp}/{MaxExp}\n" +
                 $"Arany:\t{Gold}";
         }
     }
