@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Game.Interfaces.Items;
 using Game.Interfaces.Characters;
+using Game.Interfaces.Other;
 
 namespace Game.Classes.Items
 {
-    class Bread : IItem
+    class Bread : IItem, IUsableItem
     {
         public string Name { get; set; }
         public string Description { get; set; }
@@ -25,14 +26,10 @@ namespace Game.Classes.Items
             CanBeSold = true;
         }
 
-        public void Use(IPlayer player)
+        public void Use(Player player)
         {
-
-            player.Hp += 8;
-            if (player.Hp >= player.MaxHp)
-            {
-                player.Hp = player.MaxHp;
-            }
+            int healingAmount = 8;
+            player.Heal(healingAmount);
         }
     }
 }

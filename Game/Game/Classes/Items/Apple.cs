@@ -6,10 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Game.Interfaces.Items;
 using Game.Interfaces.Characters;
+using Game.Interfaces.Other;
 
 namespace Game.Classes.Items
 {
-    class Apple : IItem
+    class Apple : IItem, IUsableItem
     {
         public string Name { get; set; }
         public string Description { get; set; }
@@ -26,13 +27,10 @@ namespace Game.Classes.Items
             CanBeSold = true;
         }
 
-        public void Use(IPlayer player) {
+        public void Use(Player player) {
 
-            player.Hp += 5;
-            if (player.Hp >= player.MaxHp)
-            {
-                player.Hp = player.MaxHp;
-            }
+            int healingAmount = 5;
+            player.Heal(healingAmount);
         }
     }
 }
