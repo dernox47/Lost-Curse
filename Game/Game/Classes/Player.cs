@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Game.Interfaces.Characters;
+using Game.Interfaces.Items;
+using Game.Interfaces.Other;
 
 namespace Game.Classes
 {
@@ -73,6 +75,16 @@ namespace Game.Classes
         public bool IsAlive()
         {
             return Hp > 0;
+        }
+
+        public void Heal(int amount)
+        {
+            this.Hp = Math.Min(this.Hp + amount, this.MaxHp);
+        }
+
+        public void Use(IUsableItem item)
+        {
+            item.Use(this);
         }
 
         public override string ToString()

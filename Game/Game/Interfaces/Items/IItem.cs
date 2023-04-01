@@ -13,7 +13,6 @@ namespace Game.Interfaces.Items
         string Description { get; set; }
         int Value { get; set; }
         string Rarity { get; set; }
-        void Use(IPlayer player);
         bool CanBeSold { get; set; }
     }
 }
