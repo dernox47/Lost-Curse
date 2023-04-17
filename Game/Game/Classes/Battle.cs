@@ -25,12 +25,19 @@ namespace Game.Classes
 
         public void Begin()
         {
-            Console.WriteLine($"Megjelent egy {_enemy.Name}\n");
+            Console.WriteLine($"Megjelent egy {_enemy.Name}.\n");
+            Console.WriteLine($"{_player.Name} ({_player.Hp}/{_player.MaxHp})\t{_enemy.Name} ({_enemy.Hp}/{_enemy.MaxHp})\n", Console.ForegroundColor = ConsoleColor.Red);
+            Console.ResetColor();
+            Console.WriteLine("Nyomj meg egy gombot a harc elkezdéséhez...");
+            Console.ReadKey();
 
             while (!_isBattleOver)
             {
                 if (_isPlayerTurn)
                 {
+                    Console.Clear();
+                    Console.WriteLine($"{_player.Name} ({_player.Hp}/{_player.MaxHp})\t{_enemy.Name} ({_enemy.Hp}/{_enemy.MaxHp})\n", Console.ForegroundColor = ConsoleColor.Red);
+                    Console.ResetColor();
                     PlayerTurn();
                 }
                 else
@@ -39,32 +46,8 @@ namespace Game.Classes
                 }
 
                 _isPlayerTurn = !_isPlayerTurn;
+                
             }
-
-            //while (_player.IsAlive() && _enemy.IsAlive())
-            //{
-            //    _player.Attack(_enemy);
-            //    Console.WriteLine($"Támadtál:\n" +
-            //        $"{_player.Name} ({_player.Hp}/{_player.MaxHp})\t{_enemy.Name} ({_enemy.Hp}/{_enemy.MaxHp})");
-            //    if (!_enemy.IsAlive())
-            //    {
-            //        Console.WriteLine($"Nyertél! A(z) {_enemy.Name} meghalt.");
-            //        _player.GainExp(_enemy.Exp);
-            //        _player.GainGold(_enemy.Gold);
-            //        Console.WriteLine($"\n{_player.ToString()}");
-
-            //        break;
-            //    }
-
-            //    _enemy.Attack(_player);
-            //    Console.WriteLine($"Támadott a(z) {_enemy.Name}:\n" +
-            //        $"{_player.Name} ({_player.Hp}/{_player.MaxHp})\t{_enemy.Name} ({_enemy.Hp}/{_enemy.MaxHp})\n");
-            //    if (!_player.IsAlive())
-            //    {
-            //        Console.WriteLine("Vesztettél.");
-            //        break;
-            //    }
-            //}
         }
 
         private void PlayerTurn()
@@ -76,19 +59,20 @@ namespace Game.Classes
 
             int choice = GetInput(3);
 
+            
+
             switch (choice)
             {
                 case 1:
                     _player.Attack(_enemy);
-                    Console.WriteLine($"\nSebeztél {_player.Atk}-t.\n" +
-                    $"{_player.Name} ({_player.Hp}/{_player.MaxHp})\t{_enemy.Name} ({_enemy.Hp}/{_enemy.MaxHp})");
+                    Console.WriteLine($"\nSebeztél {_player.Atk}-t.\n");
                     break;
                 case 2:
                     _player.Use(new HpPotion());
-                    Console.WriteLine("+20 életerőt kaptál.");
+                    Console.WriteLine("\n+20 életerőt kaptál.\n");
                     break;
                 case 3:
-                    Console.WriteLine($"Elmenekültél a(z) {_enemy.Name} elől.");
+                    Console.WriteLine($"\nElmenekültél a(z) {_enemy.Name} elől.\n");
                     _isBattleOver = true;
                     break;
             }
@@ -106,8 +90,10 @@ namespace Game.Classes
         private void EnemyTurn()
         {
             _enemy.Attack(_player);
-            Console.WriteLine($"\nA(z) {_enemy.Name} {_enemy.Atk}-t sebzett.\n" +
-                    $"{_player.Name} ({_player.Hp}/{_player.MaxHp})\t{_enemy.Name} ({_enemy.Hp}/{_enemy.MaxHp})\n");
+            Console.WriteLine($"A(z) {_enemy.Name} {_enemy.Atk}-t sebzett.");
+
+            Console.WriteLine("\nNyomj meg egy gombot a folytatáshoz...");
+            Console.ReadKey();
 
             if (!_player.IsAlive())
             {
@@ -126,6 +112,7 @@ namespace Game.Classes
             } while (!int.TryParse(Console.ReadLine(), out choice) || choice < 1 || choice > maxChoice);
 
             return choice;
+
         }
     }
 }
