@@ -14,9 +14,11 @@ namespace Game
     {
         static void Main(string[] args)
         {
-            MainGame game = new MainGame();
-            game.Start();
-
+            Inventory inventory = new Inventory();
+            inventory.AddItem("alma");
+            inventory.AddItem("poti");
+            inventory.AddItem("kard");
+            Console.WriteLine(inventory.OpenInventory());
 
             Console.ReadKey();
         }

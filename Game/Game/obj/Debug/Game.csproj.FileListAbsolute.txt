@@ -1,0 +1,7 @@
+E:\VS repok\Lost-Curse-main\Game\Game\bin\Debug\Game.exe.config
+E:\VS repok\Lost-Curse-main\Game\Game\bin\Debug\Game.exe
+E:\VS repok\Lost-Curse-main\Game\Game\bin\Debug\Game.pdb
+E:\VS repok\Lost-Curse-main\Game\Game\obj\Debug\Game.csproj.AssemblyReference.cache
+E:\VS repok\Lost-Curse-main\Game\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
+E:\VS repok\Lost-Curse-main\Game\Game\obj\Debug\Game.exe
+E:\VS repok\Lost-Curse-main\Game\Game\obj\Debug\Game.pdb
