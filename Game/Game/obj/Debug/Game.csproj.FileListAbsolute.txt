@@ -5,3 +5,10 @@ E:\VS repok\Lost-Curse-main\Game\Game\obj\Debug\Game.csproj.AssemblyReference.ca
 E:\VS repok\Lost-Curse-main\Game\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
 E:\VS repok\Lost-Curse-main\Game\Game\obj\Debug\Game.exe
 E:\VS repok\Lost-Curse-main\Game\Game\obj\Debug\Game.pdb
+D:\yon\Game\Game\Game\bin\Debug\Game.exe.config
+D:\yon\Game\Game\Game\bin\Debug\Game.exe
+D:\yon\Game\Game\Game\bin\Debug\Game.pdb
+D:\yon\Game\Game\Game\obj\Debug\Game.csproj.AssemblyReference.cache
+D:\yon\Game\Game\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
+D:\yon\Game\Game\Game\obj\Debug\Game.exe
+D:\yon\Game\Game\Game\obj\Debug\Game.pdb

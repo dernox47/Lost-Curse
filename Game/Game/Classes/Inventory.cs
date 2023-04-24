@@ -13,9 +13,9 @@ namespace Game.Classes
     {
         private static int max = 15;
         private int current;
-        private string[] items;
+        private Dictionary<string, int> items;
 
-        public int Current 
+        public int Current
         {
             get { return current; }
             set
@@ -34,34 +34,45 @@ namespace Game.Classes
                 }
             }
         }
-        public string[] Items
-        { 
-            get { return items; } 
-        }
+
         public Inventory()
         {
             current = 0;
-            items = new string[max];
+            items = new Dictionary<string, int>();
         }
-        public void AddItem(string item)
-        {
-            items.Append(item);
-        }
-        public void RemoveItem(string item)
-        {
-            for (int i = 0; i > max; i++)
+        public void AddItem(string item, int amount = 1) {
+
+            if (current <= max)
             {
-                if (items[i] == item)
+                current++;
+                if (items.ContainsKey(item))
                 {
-                    items[i] = null;
+                    items[item] += amount;
+                }
+                else
+                {
+                    items.Add(item, amount);
                 }
             }
+            else
+            {
+                Console.WriteLine("Az eszköztár be van telve!");
+            }
         }
-        public string OpenInventory()
+        public void RemoveItem(string item, int amount = 1)
         {
-            return $"[ {items[0]} ] [ {items[1]} ] [ {items[2]} ] [ {items[3]} ] [ {items[4]} ]\n" +
-                $"[ {items[5]} ] [ {items[6]} ] [ {items[7]} ] [ {items[8]} ] [ {items[9]} ]\n" +
-                $"[ {items[10]} ] [ {items[11]} ] [ {items[12]} ] [ {items[13]} ] [ {items[14]} ]\n";
+            items[item] -= amount;
+            if (items[item] <= 0)
+            {
+                items.Remove(item);
+            }
+        }
+        public void OpenInventory()
+        {
+            for (int i = 0; i < items.Count(); i++)
+            {
+                Console.WriteLine(items.ElementAt(i)); 
+            }
         }
     }
 }

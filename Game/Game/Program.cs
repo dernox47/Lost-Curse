@@ -15,10 +15,16 @@ namespace Game
         static void Main(string[] args)
         {
             Inventory inventory = new Inventory();
-            inventory.AddItem("alma");
-            inventory.AddItem("poti");
+            inventory.AddItem("alma", 3);
+            inventory.AddItem("poti", 4);
             inventory.AddItem("kard");
-            Console.WriteLine(inventory.OpenInventory());
+            inventory.OpenInventory();
+            Console.WriteLine();
+            inventory.RemoveItem("poti", 2);
+            inventory.RemoveItem("kard");
+            inventory.OpenInventory();
+
+
 
             Console.ReadKey();
         }

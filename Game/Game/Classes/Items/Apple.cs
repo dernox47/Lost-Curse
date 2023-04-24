@@ -28,7 +28,6 @@ namespace Game.Classes.Items
         }
 
         public void Use(Player player) {
-
             int healingAmount = 5;
             player.Heal(healingAmount);
         }
