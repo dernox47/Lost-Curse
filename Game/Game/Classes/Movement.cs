@@ -8,8 +8,8 @@ namespace Game.Classes
 {
     class Movement
     {
-        private int x;
-        private int y;
+        public int x;
+        public int y;
 
         public Movement(int x, int y)
         {

@@ -25,12 +25,17 @@ namespace Game.Classes
 
         public void Begin()
         {
+            Console.Clear();
             Console.WriteLine($"Megjelent egy {_enemy.Name}.\n");
             Console.WriteLine($"{_player.Name} ({_player.Hp}/{_player.MaxHp})\t{_enemy.Name} ({_enemy.Hp}/{_enemy.MaxHp})\n", Console.ForegroundColor = ConsoleColor.Red);
             Console.ResetColor();
-            Console.WriteLine("Nyomj meg egy gombot a harc elkezdéséhez...");
-            Console.ReadKey();
+            Console.WriteLine("Nyomj [enter]-t a harc elkezdéséhez...");
 
+            while (Console.ReadKey().Key != ConsoleKey.Enter)
+            {
+                continue;
+            }
+            
             while (!_isBattleOver)
             {
                 if (_isPlayerTurn)
@@ -46,7 +51,7 @@ namespace Game.Classes
                 }
 
                 _isPlayerTurn = !_isPlayerTurn;
-                
+
             }
         }
 
@@ -79,7 +84,7 @@ namespace Game.Classes
 
             if (!_enemy.IsAlive())
             {
-                Console.WriteLine($"Gratulálok! Legyőzted a(z) {_enemy.Name}.");
+                Console.WriteLine($"Gratulálok! Legyőzted a(z) {_enemy.Name}-t.");
                 _player.GainExp(_enemy.Exp);
                 _player.GainGold(_enemy.Gold);
                 Console.WriteLine($"\n{_player.ToString()}");
