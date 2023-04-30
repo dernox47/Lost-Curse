@@ -14,17 +14,20 @@ namespace Game
     {
         static void Main(string[] args)
         {
-            Inventory inventory = new Inventory();
-            inventory.AddItem("alma", 3);
-            inventory.AddItem("poti", 4);
-            inventory.AddItem("kard");
-            inventory.OpenInventory();
-            Console.WriteLine();
-            inventory.RemoveItem("poti", 2);
-            inventory.RemoveItem("kard");
-            inventory.OpenInventory();
+            //--------Eszköztár teszt------
+            //Inventory inventory = new Inventory();
+            //inventory.AddItem("alma", 3);
+            //inventory.AddItem("poti", 4);
+            //inventory.AddItem("kard");
+            //inventory.OpenInventory();
+            //inventory.RemoveItem("poti", 2);
+            //inventory.RemoveItem("kard");
+            //inventory.OpenInventory();
 
 
+            MainGame game = new MainGame();
+
+            game.Start();
 
             Console.ReadKey();
         }

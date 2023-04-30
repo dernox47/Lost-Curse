@@ -69,10 +69,21 @@ namespace Game.Classes
         }
         public void OpenInventory()
         {
-            for (int i = 0; i < items.Count(); i++)
+            int count = 0;
+            foreach (KeyValuePair<string, int> item in items)
             {
-                Console.WriteLine(items.ElementAt(i)); 
+                Console.Write($"{item.Key} ({item.Value})");
+                count++;
+                if (count % 5 == 0)
+                {
+                    Console.WriteLine();
+                }
+                else
+                {
+                    Console.Write("\t");
+                }
             }
+            Console.WriteLine();
         }
     }
 }

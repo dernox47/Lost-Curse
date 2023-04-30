@@ -12,3 +12,10 @@ D:\yon\Game\Game\Game\obj\Debug\Game.csproj.AssemblyReference.cache
 D:\yon\Game\Game\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
 D:\yon\Game\Game\Game\obj\Debug\Game.exe
 D:\yon\Game\Game\Game\obj\Debug\Game.pdb
+D:\úgykbminden\GitHub\Lost-Curse\Game\Game\bin\Debug\Game.exe.config
+D:\úgykbminden\GitHub\Lost-Curse\Game\Game\bin\Debug\Game.exe
+D:\úgykbminden\GitHub\Lost-Curse\Game\Game\bin\Debug\Game.pdb
+D:\úgykbminden\GitHub\Lost-Curse\Game\Game\obj\Debug\Game.csproj.AssemblyReference.cache
+D:\úgykbminden\GitHub\Lost-Curse\Game\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
+D:\úgykbminden\GitHub\Lost-Curse\Game\Game\obj\Debug\Game.exe
+D:\úgykbminden\GitHub\Lost-Curse\Game\Game\obj\Debug\Game.pdb
