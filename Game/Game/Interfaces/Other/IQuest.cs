@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Game.Interfaces.Items;
 using Game.Interfaces.Characters;
 
-namespace Game.Other.Interfaces
+namespace Game.Interfaces.Other
 {
     interface IQuest
     {

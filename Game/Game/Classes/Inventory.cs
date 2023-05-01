@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Game.Interfaces;
 using Game.Interfaces.Items;
-using Game.Other.Interfaces;
+using Game.Interfaces.Other;
 
 namespace Game.Classes
 {
@@ -13,7 +13,7 @@ namespace Game.Classes
     {
         private static int max = 15;
         private int current;
-        private Dictionary<string, int> items;
+        public Dictionary<IItem, int> items;
 
         public int Current
         {
@@ -38,20 +38,20 @@ namespace Game.Classes
         public Inventory()
         {
             current = 0;
-            items = new Dictionary<string, int>();
+            items = new Dictionary<IItem, int>();
         }
-        public void AddItem(string item, int amount = 1) {
+        public void AddItem(IItem item, int amount = 1) {
 
             if (current <= max)
             {
-                current++;
                 if (items.ContainsKey(item))
                 {
                     items[item] += amount;
                 }
                 else
                 {
-                    items.Add(item, amount);
+                    current++;
+                    items[item] = amount;
                 }
             }
             else
@@ -59,31 +59,40 @@ namespace Game.Classes
                 Console.WriteLine("Az eszköztár be van telve!");
             }
         }
-        public void RemoveItem(string item, int amount = 1)
+
+        public void RemoveItem(IItem item, int amount = 1)
         {
             items[item] -= amount;
             if (items[item] <= 0)
             {
+                current--;
                 items.Remove(item);
             }
         }
         public void OpenInventory()
         {
-            int count = 0;
-            foreach (KeyValuePair<string, int> item in items)
+            if (current == 0)
             {
-                Console.Write($"{item.Key} ({item.Value})");
-                count++;
-                if (count % 5 == 0)
-                {
-                    Console.WriteLine();
-                }
-                else
-                {
-                    Console.Write("\t");
-                }
+                Console.WriteLine("Üres az eszköztárad.");
             }
-            Console.WriteLine();
+            else
+            {
+                int count = 0;
+                foreach (KeyValuePair<IItem, int> item in items)
+                {
+                    Console.Write($"{item.Key.Name} ({item.Value})");
+                    count++;
+                    if (count % 5 == 0)
+                    {
+                        Console.WriteLine();
+                    }
+                    else
+                    {
+                        Console.Write("\t");
+                    }
+                }
+                Console.WriteLine();
+            }
         }
     }
 }

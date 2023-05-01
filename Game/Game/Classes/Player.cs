@@ -20,8 +20,9 @@ namespace Game.Classes
         public int Exp { get; set; }
         public int MaxExp { get; set; }
         public int Gold { get; set; }
+        public Inventory inventory = new Inventory();
 
-        public Player(string name)
+        public Player(string name = "Játékos")
         {
             Name = name;
             Hp = 100;
@@ -31,7 +32,7 @@ namespace Game.Classes
             Level = 1;
             Exp = 0;
             MaxExp = 100;
-            Gold = 0;
+            Gold = 100;
         }
 
         public void Attack(IEnemy target)

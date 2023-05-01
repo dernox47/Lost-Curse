@@ -31,11 +31,8 @@ namespace Game.Classes
             Console.ResetColor();
             Console.WriteLine("Nyomj [enter]-t a harc elkezdéséhez...");
 
-            while (Console.ReadKey().Key != ConsoleKey.Enter)
-            {
-                continue;
-            }
-            
+            PressEnterToContinue();
+
             while (!_isBattleOver)
             {
                 if (_isPlayerTurn)
@@ -64,7 +61,7 @@ namespace Game.Classes
 
             int choice = GetInput(3);
 
-            
+
 
             switch (choice)
             {
@@ -118,6 +115,19 @@ namespace Game.Classes
 
             return choice;
 
+        }
+
+        static void PressEnterToContinue()
+        {
+            GetInput:
+                ConsoleKey key = Console.ReadKey(true).Key;
+                switch (key)
+                {
+                    case ConsoleKey.Enter:
+                        return;
+                    default:
+                        goto GetInput;
+            }
         }
     }
 }

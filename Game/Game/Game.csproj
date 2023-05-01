@@ -52,6 +52,7 @@
     <Compile Include="Classes\MainGame.cs" />
     <Compile Include="Classes\Movement.cs" />
     <Compile Include="Classes\Player.cs" />
+    <Compile Include="Classes\Shop.cs" />
     <Compile Include="Classes\Sprites.cs" />
     <Compile Include="Interfaces\Characters\IAttackable.cs" />
     <Compile Include="Interfaces\Characters\ICharacter.cs" />
