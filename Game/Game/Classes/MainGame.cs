@@ -9,9 +9,20 @@ namespace Game.Classes
 {
     class MainGame : IGame
     {
+        private static string title = @"    __               __     ______                   
+   / /   ____  _____/ /_   / ____/_  _______________ 
+  / /   / __ \/ ___/ __/  / /   / / / / ___/ ___/ _ \
+ / /___/ /_/ (__  ) /_   / /___/ /_/ / /  (__  )  __/
+/_____/\____/____/\__/   \____/\__,_/_/  /____/\___/ 
+                                                     
+    
+                                                                                                 
+                                                                                                 
+";
+
         public void Start()
         {
-            Console.WriteLine("Lost Curse\n");
+            Console.WriteLine(title);
 
             Console.Write("Add meg a játékos neved: ");
             string name = Console.ReadLine();
