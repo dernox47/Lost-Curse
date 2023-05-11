@@ -9,7 +9,8 @@ namespace Game.Classes
 {
     class MainGame : IGame
     {
-        private static string title = @"    __               __     ______                   
+        private static string title = @"
+    __               __     ______                   
    / /   ____  _____/ /_   / ____/_  _______________ 
   / /   / __ \/ ___/ __/  / /   / / / / ___/ ___/ _ \
  / /___/ /_/ (__  ) /_   / /___/ /_/ / /  (__  )  __/
