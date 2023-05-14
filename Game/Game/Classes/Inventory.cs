@@ -56,7 +56,7 @@ namespace Game.Classes
             }
             else
             {
-                Console.WriteLine("Az eszköztár be van telve!");
+                Console.WriteLine("Your Inventory is full!");
             }
         }
 
@@ -73,7 +73,7 @@ namespace Game.Classes
         {
             if (current == 0)
             {
-                Console.WriteLine("Üres az eszköztárad.");
+                Console.WriteLine("Your Inventory is empty");
             }
             else
             {
