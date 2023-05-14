@@ -59,7 +59,7 @@ namespace Game.Classes
                 MaxHp += 10;
                 Atk += 2;
                 Hp = MaxHp;
-                Console.WriteLine($"You leveled up! [Szint {Level}]");
+                Console.WriteLine($"You leveled up! [Level {Level}]");
             }
         }
 
@@ -96,7 +96,7 @@ namespace Game.Classes
                 $"DEF:\t{Def}\n" +
                 $"Level:\t{Level}\n" +
                 $"EXP:\t{Exp}/{MaxExp}\n" +
-                $"Arany:\t{Gold}";
+                $"Gold:\t{Gold}";
         }
     }
 }

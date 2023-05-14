@@ -19,10 +19,10 @@ namespace Game.Classes.Items
 
         public Bread()
         {
-            Name = "Kenyér";
-            Description = "Egyen egy finom kenyeret és töltsön vissza 8 életerőt!";
+            Name = "Bread";
+            Description = "Eat a delicious bread and restore 8 HP.";
             Value = 3;
-            Rarity = "gyakori";
+            Rarity = "common";
             CanBeSold = true;
         }
 

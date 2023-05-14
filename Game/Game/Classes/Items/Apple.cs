@@ -20,10 +20,10 @@ namespace Game.Classes.Items
 
         public Apple()
         {
-            Name = "Alma";
-            Description = "Egyen egy finom almát és töltsön vissza 5 életerőt!";
+            Name = "Apple";
+            Description = "Eat a delicious apple and restore 5 HP.";
             Value = 2;
-            Rarity = "gyakori";
+            Rarity = "common";
             CanBeSold = true;
         }
 

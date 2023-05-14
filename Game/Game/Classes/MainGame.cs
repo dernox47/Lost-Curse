@@ -24,7 +24,7 @@ namespace Game.Classes
         {
             Console.WriteLine(title);
 
-            Console.Write("Write your characters name: ");
+            Console.Write("Enter your character's name: ");
             string name = Console.ReadLine();
             Console.Clear();
 

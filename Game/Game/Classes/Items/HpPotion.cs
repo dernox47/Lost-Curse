@@ -19,10 +19,10 @@ namespace Game.Classes.Items
 
         public HpPotion()
         {
-            Name = "Regeneráló főzet";
-            Description = "Használd és töltsd fel az életerőd vele.";
+            Name = "HP Potion";
+            Description = "Use it and restore your HP.";
             Value = 5;
-            Rarity = "gyakori";
+            Rarity = "common";
             CanBeSold = true;
         }
 

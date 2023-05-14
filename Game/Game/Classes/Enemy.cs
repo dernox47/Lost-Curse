@@ -55,9 +55,9 @@ namespace Game.Classes
                 $"HP:\t{Hp}/{MaxHp}\n" +
                 $"ATK:\t{Atk}\n" +
                 $"DEF:\t{Def}\n" +
-                $"Szint:\t{Level}\n" +
+                $"Level:\t{Level}\n" +
                 $"EXP:\t{Exp}\n" +
-                $"Arany:\t{Gold}";
+                $"Gold:\t{Gold}";
         }
     }
 }

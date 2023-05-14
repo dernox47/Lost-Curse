@@ -110,7 +110,7 @@ namespace Game.Classes
 
             do
             {
-                Console.Write($"Write your choice (1-{maxChoice}): ");
+                Console.Write($"Enter your choice (1-{maxChoice}): ");
             } while (!int.TryParse(Console.ReadLine(), out choice) || choice < 1 || choice > maxChoice);
 
             return choice;
