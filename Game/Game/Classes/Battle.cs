@@ -54,10 +54,10 @@ namespace Game.Classes
 
         private void PlayerTurn()
         {
-            Console.WriteLine("A te köröd következik:");
-            Console.WriteLine("1. Támadás");
-            Console.WriteLine("2. Gyógyítás");
-            Console.WriteLine("3. Feladás");
+            Console.WriteLine("It is your turn:");
+            Console.WriteLine("1. Attack");
+            Console.WriteLine("2. Heal");
+            Console.WriteLine("3. Give up");
 
             int choice = GetInput(3);
 
@@ -67,21 +67,21 @@ namespace Game.Classes
             {
                 case 1:
                     _player.Attack(_enemy);
-                    Console.WriteLine($"\nSebeztél {_player.Atk}-t.\n");
+                    Console.WriteLine($"\nYou damaged: {_player.Atk}.\n");
                     break;
                 case 2:
                     _player.Use(new HpPotion());
-                    Console.WriteLine("\n+20 életerőt kaptál.\n");
+                    Console.WriteLine("\nYou got +20 health.\n");
                     break;
                 case 3:
-                    Console.WriteLine($"\nElmenekültél a(z) {_enemy.Name} elől.\n");
+                    Console.WriteLine($"\nYou escaped from a(n) {_enemy.Name}.\n");
                     _isBattleOver = true;
                     break;
             }
 
             if (!_enemy.IsAlive())
             {
-                Console.WriteLine($"Gratulálok! Legyőzted a(z) {_enemy.Name}-t.");
+                Console.WriteLine($"Congratulations! You killed a(n) {_enemy.Name}.");
                 _player.GainExp(_enemy.Exp);
                 _player.GainGold(_enemy.Gold);
                 Console.WriteLine($"\n{_player.ToString()}");
@@ -92,14 +92,14 @@ namespace Game.Classes
         private void EnemyTurn()
         {
             _enemy.Attack(_player);
-            Console.WriteLine($"A(z) {_enemy.Name} {_enemy.Atk}-t sebzett.");
+            Console.WriteLine($"The {_enemy.Name} damaged {_enemy.Atk}.");
 
-            Console.WriteLine("\nNyomj meg egy gombot a folytatáshoz...");
+            Console.WriteLine("\nPress a button to continue...");
             Console.ReadKey();
 
             if (!_player.IsAlive())
             {
-                Console.WriteLine("Vesztettél.");
+                Console.WriteLine("You lost.");
                 _isBattleOver = true;
             }
         }
@@ -110,7 +110,7 @@ namespace Game.Classes
 
             do
             {
-                Console.Write($"Ajd meg egy lehetőséget (1-{maxChoice}): ");
+                Console.Write($"Write your choice (1-{maxChoice}): ");
             } while (!int.TryParse(Console.ReadLine(), out choice) || choice < 1 || choice > maxChoice);
 
             return choice;
