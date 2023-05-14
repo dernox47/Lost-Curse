@@ -73,7 +73,7 @@ namespace Game.Classes
         {
             if (current == 0)
             {
-                Console.WriteLine("Your Inventory is empty");
+                Console.WriteLine("Your Inventory is empty.");
             }
             else
             {

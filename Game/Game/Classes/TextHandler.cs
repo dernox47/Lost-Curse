@@ -9,6 +9,8 @@ namespace Game.Classes
 {
     class TextHandler
     {
+        static PressEnter pressEnter = new PressEnter();
+
         private Dictionary<string, string[]> texts = new Dictionary<string, string[]>();
 
         public TextHandler(string fileName)
@@ -32,14 +34,6 @@ namespace Game.Classes
             {
                 Console.WriteLine("The file does not exists.");
             }
-        }
-
-        public static void ClearCurrentConsoleLine()
-        {
-            int currentLineCursor = Console.CursorTop;
-            Console.SetCursorPosition(0, Console.CursorTop);
-            Console.Write(new string(' ', Console.WindowWidth));
-            Console.SetCursorPosition(0, currentLineCursor);
         }
 
         public void Print(string blockName)
@@ -73,10 +67,14 @@ namespace Game.Classes
                         }
                     }
                 }
-                Console.WriteLine();
+                Console.WriteLine("\n");
 
-                Console.ReadLine();
+                pressEnter.ToContinue();
             }
+            Console.WriteLine("Press [enter] to continue... ");
+            pressEnter.ToContinue();
+
+            Console.Clear();
         }
 
     }

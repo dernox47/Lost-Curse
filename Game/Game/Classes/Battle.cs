@@ -10,6 +10,7 @@ namespace Game.Classes
 {
     class Battle
     {
+        static PressEnter pressEnter = new PressEnter();
         private Player _player { get; set; }
         private Enemy _enemy { get; set; }
         private bool _isPlayerTurn;
@@ -31,7 +32,7 @@ namespace Game.Classes
             Console.ResetColor();
             Console.WriteLine("Press [enter] to start the fight...");
 
-            PressEnterToContinue();
+            pressEnter.ToContinue();
 
             while (!_isBattleOver)
             {
@@ -41,20 +42,24 @@ namespace Game.Classes
                     Console.WriteLine($"{_player.Name} ({_player.Hp}/{_player.MaxHp})\t{_enemy.Name} ({_enemy.Hp}/{_enemy.MaxHp})\n", Console.ForegroundColor = ConsoleColor.Red);
                     Console.ResetColor();
                     PlayerTurn();
+                    
                 }
                 else
                 {
                     EnemyTurn();
                 }
 
+                
                 _isPlayerTurn = !_isPlayerTurn;
+
+                
 
             }
         }
 
         private void PlayerTurn()
         {
-            Console.WriteLine("It is your turn:");
+            Console.WriteLine("It's your turn:");
             Console.WriteLine("1. Attack");
             Console.WriteLine("2. Heal");
             Console.WriteLine("3. Give up");
@@ -86,6 +91,8 @@ namespace Game.Classes
                 _player.GainGold(_enemy.Gold);
                 Console.WriteLine($"\n{_player.ToString()}");
                 _isBattleOver = true;
+                Console.WriteLine("Press [enter] to continue...");
+                pressEnter.ToContinue();
             }
         }
 
@@ -94,8 +101,14 @@ namespace Game.Classes
             _enemy.Attack(_player);
             Console.WriteLine($"The {_enemy.Name} damaged {_enemy.Atk}.");
 
-            Console.WriteLine("\nPress a button to continue...");
-            Console.ReadKey();
+            Console.WriteLine("\nPress [enter] to continue...");
+            Console.SetCursorPosition(0, 0);
+            Console.Write(new string(' ', Console.WindowWidth));
+            Console.SetCursorPosition(0, 0);
+            Console.Write($"{_player.Name} ({_player.Hp}/{_player.MaxHp})\t{_enemy.Name} ({_enemy.Hp}/{_enemy.MaxHp})\n", Console.ForegroundColor = ConsoleColor.Red);
+            Console.ResetColor();
+            pressEnter.ToContinue();
+
 
             if (!_player.IsAlive())
             {
@@ -117,17 +130,5 @@ namespace Game.Classes
 
         }
 
-        static void PressEnterToContinue()
-        {
-            GetInput:
-                ConsoleKey key = Console.ReadKey(true).Key;
-                switch (key)
-                {
-                    case ConsoleKey.Enter:
-                        return;
-                    default:
-                        goto GetInput;
-            }
-        }
     }
 }

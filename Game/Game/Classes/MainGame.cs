@@ -10,50 +10,49 @@ namespace Game.Classes
     class MainGame : IGame
     {
         private static string title = @"
-
-    __               __     ______                   
-   / /   ____  _____/ /_   / ____/_  _______________ 
-  / /   / __ \/ ___/ __/  / /   / / / / ___/ ___/ _ \
- / /___/ /_/ (__  ) /_   / /___/ /_/ / /  (__  )  __/
-/_____/\____/____/\__/   \____/\__,_/_/  /____/\___/ 
-                                                     
-                                                                                                 
+  _              _      ____                    
+ | |    ___  ___| |_   / ___|   _ _ __ ___  ___ 
+ | |   / _ \/ __| __| | |  | | | | '__/ __|/ _ \
+ | |__| (_) \__ \ |_  | |__| |_| | |  \__ \  __/
+ |_____\___/|___/\__|  \____\__,_|_|  |___/\___|
+                                                
 ";
 
         public void Start()
         {
             Console.WriteLine(title);
-
             Console.Write("Enter your character's name: ");
             string name = Console.ReadLine();
+
+
             Console.Clear();
 
             Player player = new Player(name);
-            Enemy enemy;
             TextHandler story = new TextHandler("storyTexts.txt");
 
-            //story.Print("BackgroundStory");
-            //story.Print("GuildStart");
+            story.Print("BackgroundStory");
+            story.Print("GuildStart");
+
+            //Guild teszt kérdések
+
+
+
 
             Movement movement;
-            movement = new Movement(0, 0);
+            movement = new Movement("mapGuildTest.txt");
+            Enemy enemy = new Enemy("Adventurer", 80, 80, 10, 0, 1, 0, 0);
 
 
+            movement.Collision += (sender, e) =>
+            {
+                Battle battleTest = new Battle(player, enemy);
 
+                battleTest.Begin();
+            };
 
+            movement.Update();
 
-
-
-            enemy = new Enemy("Goblin", 50, 50, 10, 0, 1, 20, 5);
-
-            int enemyX = Console.WindowWidth - 10;
-            int enemyY = Console.WindowHeight / 2;
-
-            Console.SetCursorPosition(enemyX, enemyY);
-            Console.WriteLine(@"(*_*)");
-
-            Battle battle = new Battle(player, enemy);
-            
+            //Győzelem után
 
 
 
@@ -62,11 +61,24 @@ namespace Game.Classes
 
 
 
-            //Console.WriteLine();
-            //Console.WriteLine(player2.ToString());
-            //Console.WriteLine();
-            //Console.WriteLine(enemy.ToString());
-            //Console.WriteLine();
+            //Első küldetés kiválasztás
+
+
+
+
+
+
+            //Küldetés leírás
+
+
+
+
+
+
+
+            //
+
+
 
 
         }
