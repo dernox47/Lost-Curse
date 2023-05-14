@@ -22,7 +22,7 @@ namespace Game.Classes
         public int Gold { get; set; }
         public Inventory inventory = new Inventory();
 
-        public Player(string name = "Játékos")
+        public Player(string name = "Player")
         {
             Name = name;
             Hp = 100;
@@ -59,7 +59,7 @@ namespace Game.Classes
                 MaxHp += 10;
                 Atk += 2;
                 Hp = MaxHp;
-                Console.WriteLine($"Szintet léptél! [Szint {Level}]");
+                Console.WriteLine($"You leveled up! [Szint {Level}]");
             }
         }
 
@@ -94,7 +94,7 @@ namespace Game.Classes
                 $"HP:\t{Hp}/{MaxHp}\n" +
                 $"ATK:\t{Atk}\n" +
                 $"DEF:\t{Def}\n" +
-                $"Szint:\t{Level}\n" +
+                $"Level:\t{Level}\n" +
                 $"EXP:\t{Exp}/{MaxExp}\n" +
                 $"Arany:\t{Gold}";
         }
