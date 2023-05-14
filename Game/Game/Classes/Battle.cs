@@ -26,10 +26,10 @@ namespace Game.Classes
         public void Begin()
         {
             Console.Clear();
-            Console.WriteLine($"Megjelent egy {_enemy.Name}.\n");
+            Console.WriteLine($"A(n) {_enemy.Name} appeared.\n");
             Console.WriteLine($"{_player.Name} ({_player.Hp}/{_player.MaxHp})\t{_enemy.Name} ({_enemy.Hp}/{_enemy.MaxHp})\n", Console.ForegroundColor = ConsoleColor.Red);
             Console.ResetColor();
-            Console.WriteLine("Nyomj [enter]-t a harc elkezdéséhez...");
+            Console.WriteLine("Press [enter] to start the fight...");
 
             PressEnterToContinue();
 
