@@ -15,12 +15,9 @@ namespace Game.Classes
         {
             this.x = x;
             this.y = y;
-            Console.SetCursorPosition(x, y);
-            Console.WriteLine(@" o ");
-            Console.SetCursorPosition(x, y + 1);
-            Console.WriteLine(@"/|\");
-            Console.SetCursorPosition(x, y + 2);
-            Console.WriteLine(@"/ \");
+            Draw();
+            Update();
+            Console.Clear();
         }
 
         public void Draw()
@@ -40,6 +37,31 @@ namespace Game.Classes
             Console.WriteLine(@"   ");
             Console.SetCursorPosition(x, y + 2);
             Console.WriteLine(@"   ");
+        }
+
+        public void Update()
+        {
+            while (true)
+            {
+                Console.CursorVisible = false;
+
+                ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+                switch (keyInfo.Key)
+                {
+                    case ConsoleKey.LeftArrow:
+                        MoveLeft();
+                        break;
+                    case ConsoleKey.RightArrow:
+                        MoveRight();
+                        break;
+                    case ConsoleKey.UpArrow:
+                        MoveUp();
+                        break;
+                    case ConsoleKey.DownArrow:
+                        MoveDown();
+                        break;
+                }
+            }
         }
 
         public void MoveLeft()
@@ -83,4 +105,3 @@ namespace Game.Classes
         }
     }
 }
-
