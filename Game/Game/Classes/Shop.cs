@@ -29,14 +29,14 @@ namespace Game.Classes
         {
             if (!Stock.ContainsKey(item) || Stock[item] < quantity)
             {
-                Console.WriteLine("Nincs elég ebből a boltban.");
+                Console.WriteLine("There isn't enough in the shop.");
                 return;
             }
 
             int totalPrice = Prices[item] * quantity;
             if (player.Gold < totalPrice)
             {
-                Console.WriteLine("Nincs elég aranyad hozzá.");
+                Console.WriteLine("You don't have enough gold.");
                 return;
             }
 
@@ -44,14 +44,14 @@ namespace Game.Classes
             player.inventory.AddItem(item, quantity);
 
             Stock[item] -= quantity;
-            Console.WriteLine($"Eszköztáradhoz hozzáadva: {quantity} {item.Name}");
+            Console.WriteLine($"Added to your inventory: {quantity} {item.Name}");
         }
 
         public void SellItem(IItem item, int quantity)
         {
             if (!player.inventory.items.ContainsKey(item) || player.inventory.items[item] < quantity)
             {
-                Console.WriteLine("Nincs elég az eszköztáradban.");
+                Console.WriteLine("You dont have enough in your inventory.");
                 return;
             }
 
@@ -69,7 +69,7 @@ namespace Game.Classes
                 Stock[item] = quantity;
             }
 
-            Console.WriteLine($"El lett adva {quantity} {item.Name}");
+            Console.WriteLine($"You sold {quantity} {item.Name}");
         }
     }
 }
