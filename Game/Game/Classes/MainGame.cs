@@ -24,7 +24,7 @@ namespace Game.Classes
         {
             Console.WriteLine(title);
 
-            Console.Write("Add meg a játékos neved: ");
+            Console.Write("Write your characters name: ");
             string name = Console.ReadLine();
             Console.Clear();
 
