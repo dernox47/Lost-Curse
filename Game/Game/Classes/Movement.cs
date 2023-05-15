@@ -183,9 +183,6 @@ namespace Game.Classes
 
                 DrawMap();
 
-                Console.WriteLine(posX);
-                Console.WriteLine(enemyX);
-
                 ConsoleKeyInfo keyInfo;
                 keyInfo = Console.ReadKey(true);
 
