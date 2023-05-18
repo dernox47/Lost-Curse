@@ -30,8 +30,8 @@ namespace Game.Classes
             Player player = new Player(name);
             TextHandler story = new TextHandler("storyTexts.txt");
 
-            story.Print("BackgroundStory");
-            story.Print("GuildStart");
+            //story.Print("BackgroundStory");
+            //story.Print("GuildStart");
 
             //Guild teszt kérdések
 
@@ -40,17 +40,13 @@ namespace Game.Classes
 
             Movement movement;
             movement = new Movement("mapGuildTest.txt");
-            Enemy enemy = new Enemy("Adventurer", 80, 80, 10, 0, 1, 0, 0);
+            Enemy enemy = new Enemy("Adventurer", 10, 80, 10, 0, 1, 10, 0);
+            Battle adventurerBattle = new Battle(player, enemy);
 
+            movement.StartMap(adventurerBattle);
+            
+            
 
-            movement.Collision += (sender, e) =>
-            {
-                Battle battleTest = new Battle(player, enemy);
-
-                battleTest.Begin();
-            };
-
-            movement.Update();
 
             //Győzelem után
 

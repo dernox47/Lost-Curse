@@ -15,7 +15,23 @@ namespace Game.Classes
         private int enemyY;
         private char[,] currentMap;
         private char[] forbiddenChars = new char[] { '=', ']', '['};
-        public event EventHandler Collision;
+
+        private bool collision;
+
+        public bool Collision
+        {
+            get { return collision; }
+            private set
+            {
+                if (posX == enemyX - 2)
+                {
+                    collision = true;
+                }
+                else collision = false;
+            }
+        }
+
+
 
         public Movement(string fileName)
         {
@@ -23,6 +39,55 @@ namespace Game.Classes
             Find();
             DrawChar();
             DrawEnemy();
+        }
+
+        public void StartMap(Battle battle)
+        {
+            while (true)
+            {
+                Console.CursorVisible = false;
+
+                Find();
+                DrawMap();
+
+                if (!battle._enemyDefeated)
+                {
+                    Collision = false;
+                }
+
+                if (collision)
+                {
+                    battle.Begin();
+                    if (battle._enemyDefeated)
+                    {
+                        RemoveEnemy();
+                        collision = false;
+                        DrawChar();
+                    }
+                }
+
+                ConsoleKeyInfo keyInfo;
+                keyInfo = Console.ReadKey(true);
+
+                switch (keyInfo.Key)
+                {
+                    case ConsoleKey.LeftArrow:
+                        MoveLeft();
+                        break;
+                    case ConsoleKey.RightArrow:
+                        MoveRight();
+                        break;
+                    case ConsoleKey.UpArrow:
+                        MoveUp();
+                        break;
+                    case ConsoleKey.DownArrow:
+                        MoveDown();
+                        break;
+                }
+                Console.Clear();
+
+                
+            }
         }
 
         private void ReadMap(string fileName)
@@ -113,22 +178,19 @@ namespace Game.Classes
             currentMap[enemyX + 1, enemyY + 2] = '\\';
         }
 
-        private bool Collide()
+        private void RemoveEnemy()
         {
-            if (posX == enemyX - 2)
-            {
-                return true;
-            }
-            return false;
+            currentMap[enemyX, enemyY] = ' ';
+
+            currentMap[enemyX, enemyY + 1] = ' ';
+            currentMap[enemyX - 1, enemyY + 1] = ' ';
+            currentMap[enemyX + 1, enemyY + 1] = ' ';
+
+            currentMap[enemyX, enemyY + 2] = ' ';
+            currentMap[enemyX - 1, enemyY + 2] = ' ';
+            currentMap[enemyX + 1, enemyY + 2] = ' ';
         }
 
-        private void CollisionHandle()
-        {
-            if (Collide())
-            {
-                Collision?.Invoke(this, EventArgs.Empty);
-            }
-        }
 
 
 
@@ -169,40 +231,6 @@ namespace Game.Classes
                 RemoveChar();
                 posY++;
                 DrawChar();
-            }
-        }
-
-
-
-
-        public void Update()
-        {
-            while (true)
-            {
-                Console.CursorVisible = false;
-
-                DrawMap();
-
-                ConsoleKeyInfo keyInfo;
-                keyInfo = Console.ReadKey(true);
-
-                switch (keyInfo.Key)
-                {
-                    case ConsoleKey.LeftArrow:
-                        MoveLeft();
-                        break;
-                    case ConsoleKey.RightArrow:
-                        MoveRight();
-                        break;
-                    case ConsoleKey.UpArrow:
-                        MoveUp();
-                        break;
-                    case ConsoleKey.DownArrow:
-                        MoveDown();
-                        break;
-                }
-                CollisionHandle();
-                Console.Clear();
             }
         }
     }

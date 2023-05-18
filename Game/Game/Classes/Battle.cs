@@ -15,6 +15,7 @@ namespace Game.Classes
         private Enemy _enemy { get; set; }
         private bool _isPlayerTurn;
         private bool _isBattleOver;
+        public bool _enemyDefeated { get; private set; }
 
         public Battle(Player player, Enemy enemy)
         {
@@ -22,6 +23,7 @@ namespace Game.Classes
             _enemy = enemy;
             _isPlayerTurn = true;
             _isBattleOver = false;
+            _enemyDefeated = false;
         }
 
         public void Begin()
@@ -86,13 +88,13 @@ namespace Game.Classes
 
             if (!_enemy.IsAlive())
             {
-                Console.WriteLine($"Congratulations! You killed a(n) {_enemy.Name}.");
+                Console.WriteLine($"Congratulations! You defeated a(n) {_enemy.Name}.");
                 _player.GainExp(_enemy.Exp);
                 _player.GainGold(_enemy.Gold);
-                Console.WriteLine($"\n{_player.ToString()}");
+                Rewards();
                 _isBattleOver = true;
+                _enemyDefeated = true;
                 Console.WriteLine("Press [enter] to continue...");
-                pressEnter.ToContinue();
             }
         }
 
@@ -128,6 +130,18 @@ namespace Game.Classes
 
             return choice;
 
+        }
+
+        private void Rewards()
+        {
+            if (_enemy.Exp != 0)
+            {
+                Console.WriteLine($"+{_enemy.Exp} XP");
+            }
+            if (_enemy.Gold != 0)
+            {
+                Console.WriteLine($"+{_enemy.Gold} Gold");
+            }
         }
 
     }
