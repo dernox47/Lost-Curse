@@ -84,7 +84,7 @@ namespace Game.Classes
                         DrawShop();
                     }
                 }
-                if (collision && collisionType == 2)
+                if (collision && collisionType == 2 && battle._enemyDefeated)
                 {
                     shop.Open();
                 }
@@ -108,9 +108,8 @@ namespace Game.Classes
                         MoveDown();
                         break;
                 }
-                Console.Clear();
-
                 
+                Console.Clear();
             }
         }
 

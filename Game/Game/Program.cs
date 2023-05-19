@@ -19,9 +19,9 @@ namespace Game
             //--------Eszköztár teszt------
             //Inventory inventory = new Inventory();
 
-            //Apple apple = new Apple();
-            //Bread bread = new Bread();
-            //HpPotion hpPotion = new HpPotion();
+            Apple apple = new Apple();
+            Bread bread = new Bread();
+            HpPotion hpPotion = new HpPotion();
 
             //inventory.AddItem(apple, 3);
             //inventory.AddItem(bread, 4);

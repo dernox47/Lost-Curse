@@ -116,21 +116,19 @@ namespace Game.Classes
 
                 Apple apple = new Apple();
                 Bread bread = new Bread();
-                Bread bread1 = new Bread();
                 Bread bread2 = new Bread();
                 Bread bread3 = new Bread();
                 Bread bread4 = new Bread();
+                Bread bread5 = new Bread();
                 HpPotion hpPotion = new HpPotion();
 
                 Dictionary<IItem, int> initialStockGuild = new Dictionary<IItem, int>()
                 {
                     { apple, 5 },
                     { bread, 6 },
-                    { bread1, 6 },
                     { bread2, 6 },
-                    //{ bread3, 6 },
-                    //{ bread4, 6 },
-                    //{ hpPotion, 4 }
+                    { bread3, 6 },
+                    { hpPotion, 4 }
                 };
 
                 Shop guildShop = new Shop(initialStockGuild, player);
