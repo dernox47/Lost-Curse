@@ -11,8 +11,14 @@ namespace Game.Classes
     {
         private int posX;
         private int posY;
+
         private int enemyX;
         private int enemyY;
+
+        private int shopX;
+        private int shopY;
+
+        private char[,] originalMap;
         private char[,] currentMap;
         private char[] forbiddenChars = new char[] { '=', ']', '['};
 
@@ -47,7 +53,6 @@ namespace Game.Classes
             {
                 Console.CursorVisible = false;
 
-                Find();
                 DrawMap();
 
                 if (!battle._enemyDefeated)
@@ -63,6 +68,7 @@ namespace Game.Classes
                         RemoveEnemy();
                         collision = false;
                         DrawChar();
+                        DrawShop();
                     }
                 }
 
@@ -90,6 +96,7 @@ namespace Game.Classes
             }
         }
 
+        //Pálya beolvasása, eltárolása
         private void ReadMap(string fileName)
         {
             string[] lines = File.ReadAllLines(fileName);
@@ -98,36 +105,46 @@ namespace Game.Classes
             int height = lines.Length;
 
             currentMap = new char[width, height];
+            originalMap = new char[width, height];
 
             for (int y = 0; y < height; y++)
             {
                 for (int x = 0; x < width; x++)
                 {
                     currentMap[x, y] = lines[y][x];
+                    originalMap[x, y] = lines[y][x];
                 }
             }
         }
 
+        //Indexek megkeresése a pályán és elmentése
         private void Find()
         {
-            for (int y = 0; y < currentMap.GetLength(1); y++)
+            for (int y = 0; y < originalMap.GetLength(1); y++)
             {
-                for (int x = 0; x < currentMap.GetLength(0); x++)
+                for (int x = 0; x < originalMap.GetLength(0); x++)
                 {
-                    if (currentMap[x, y] == 'x')
+                    if (originalMap[x, y] == 'x')
                     {
                         posX = x;
                         posY = y;
                     }
-                    else if (currentMap[x, y] == 'e')
+                    else if (originalMap[x, y] == 'e')
                     {
                         enemyX = x;
                         enemyY = y;
+                    }
+                    else if (originalMap[x, y] == 's')
+                    {
+                        shopX = x;
+                        shopY = y;
+                        currentMap[x, y] = ' ';
                     }
                 }
             }
         }
 
+        //Pálya kiíratása
         public void DrawMap()
         {
             for (int y = 0; y < currentMap.GetLength(1); y++)
@@ -140,6 +157,8 @@ namespace Game.Classes
             }
         }
 
+
+        //Objektek kiíratása vagy eltüntetése
         private void DrawChar()
         {
             currentMap[posX, posY] = 'o';
@@ -191,9 +210,54 @@ namespace Game.Classes
             currentMap[enemyX + 1, enemyY + 2] = ' ';
         }
 
+        // _/_\_
+        // |_°_|
+        // |___|
+
+        private void DrawShop()
+        {
+            currentMap[shopX, shopY] = '_';
+            currentMap[shopX - 1, shopY] = '/';
+            currentMap[shopX - 2, shopY] = '_';
+            currentMap[shopX + 1, shopY] = '\\';
+            currentMap[shopX + 2, shopY] = '_';
+
+            currentMap[shopX, shopY + 1] = '°';
+            currentMap[shopX - 1, shopY + 1] = '_';
+            currentMap[shopX - 2, shopY + 1] = '|';
+            currentMap[shopX + 1, shopY + 1] = '_';
+            currentMap[shopX + 2, shopY + 1] = '|';
+
+            currentMap[shopX, shopY + 2] = '_';
+            currentMap[shopX - 1, shopY + 2] = '_';
+            currentMap[shopX - 2, shopY + 2] = '|';
+            currentMap[shopX + 1, shopY + 2] = '_';
+            currentMap[shopX + 2, shopY + 2] = '|';
+        }
+
+        private void RemoveShop()
+        {
+            currentMap[shopX, shopY] = ' ';
+            currentMap[shopX - 1, shopY] = ' ';
+            currentMap[shopX - 2, shopY] = ' ';
+            currentMap[shopX + 1, shopY] = ' ';
+            currentMap[shopX + 2, shopY] = ' ';
+
+            currentMap[shopX, shopY + 1] = ' ';
+            currentMap[shopX - 1, shopY + 1] = ' ';
+            currentMap[shopX - 2, shopY + 1] = ' ';
+            currentMap[shopX + 1, shopY + 1] = ' ';
+            currentMap[shopX + 2, shopY + 1] = ' ';
+
+            currentMap[shopX, shopY + 2] = ' ';
+            currentMap[shopX - 1, shopY + 2] = ' ';
+            currentMap[shopX - 2, shopY + 2] = ' ';
+            currentMap[shopX + 1, shopY + 2] = ' ';
+            currentMap[shopX + 2, shopY + 2] = ' ';
+        }
 
 
-
+        //Mozgás lekezelések
         public void MoveLeft()
         {
             if (forbiddenChars.Contains(currentMap[posX - 2, posY]) == false)

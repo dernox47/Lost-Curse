@@ -16,3 +16,15 @@ GuildStart
 When he turned 14, he became old enough to finally join the adventurers’ guild.
 Before he could enter the guild, he had to pass the tests.
 The first test tested his knowledge about monsters and adventurers.
+#
+BeforeGuildFight
+@
+The second test is a fight against an adventurer.
+You don't have to win the fight you just have to prove that you are able to fight.
+If you pass this test you can join the guild and accept quests.
+#
+AfterGuildFight
+@
+Congratulations you passed the test.
+There are 8 adventurer ranks. Slave, Peasant, Soldier, Warrior, Knight, Lord, Emperor, Hero and Legend.
+You start as a Slave rank and rank up after doing quests.

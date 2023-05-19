@@ -8,10 +8,7 @@ namespace Game.Classes
 {
     class PressEnter
     {
-        public PressEnter()
-        {
-
-        }
+        public PressEnter() {}
 
         public void ToContinue()
         {

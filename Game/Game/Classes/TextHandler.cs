@@ -40,7 +40,7 @@ namespace Game.Classes
         {
             Console.CursorVisible = false;
             
-            
+            //Mondatonként kiírás és sortörés
             foreach (string line in texts[blockName])
             {
                 const int width = 80;
@@ -71,6 +71,7 @@ namespace Game.Classes
 
                 pressEnter.ToContinue();
             }
+
             Console.WriteLine("Press [enter] to continue... ");
             pressEnter.ToContinue();
 
