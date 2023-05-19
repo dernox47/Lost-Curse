@@ -17,6 +17,8 @@ namespace Game.Classes
         private bool _isBattleOver;
         public bool _enemyDefeated { get; private set; }
 
+        public Battle() {}
+
         public Battle(Player player, Enemy enemy)
         {
             _player = player;

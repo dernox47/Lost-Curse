@@ -12,7 +12,6 @@ namespace Game.Interfaces.Other
     {
         string Name { get; set; }
         string Description { get; set; }
-        Dictionary<IItem, int> Prices { get; set; }
         Dictionary<IItem, int> Stock { get; set; }
         void SellItem(IItem item, int quantity);
         void BuyItem(IItem item, int quantity);

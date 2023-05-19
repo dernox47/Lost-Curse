@@ -12,13 +12,11 @@ namespace Game.Classes
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public Dictionary<IItem, int> Prices { get; set; }
         public Dictionary<IItem, int> Stock { get; set; }
         private Player player;
 
-        public Shop(Dictionary<IItem, int> itemPrices, Dictionary<IItem, int> initialStock, Player player, string name = "Bolt", string description = "Ez egy bolt.")
+        public Shop(Dictionary<IItem, int> initialStock, Player player, string name = "Shop", string description = "This is a shop.")
         {
-            Prices = itemPrices;
             Stock = initialStock;
             Name = name;
             Description = description;
@@ -33,7 +31,7 @@ namespace Game.Classes
                 return;
             }
 
-            int totalPrice = Prices[item] * quantity;
+            int totalPrice = item.Value * quantity;
             if (player.Gold < totalPrice)
             {
                 Console.WriteLine("You don't have enough gold.");
@@ -55,7 +53,7 @@ namespace Game.Classes
                 return;
             }
 
-            int totalPrice = Prices[item] * quantity;
+            int totalPrice = item.Value * quantity;
             player.Gold += totalPrice;
 
             player.inventory.RemoveItem(item, quantity);
@@ -70,6 +68,33 @@ namespace Game.Classes
             }
 
             Console.WriteLine($"You sold {quantity} {item.Name}");
+        }
+
+        public void Open()
+        {
+            int count = 0;
+            
+            foreach (KeyValuePair<IItem, int> item in Stock)
+            {
+                if (count == 0)
+                {
+                    Console.WriteLine(new string('=', 80));
+                }
+                Console.Write($"{item.Key.Name}({item.Value}) {item.Key.Value} gold");
+
+                count++;
+                if (count % 3 == 0)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine(new string('=', 80));
+                }
+                else Console.Write("\t\t");
+            }
+            Console.WriteLine();
+            if (count > 3)
+            {
+                Console.WriteLine(new string('=', 80));
+            }
         }
     }
 }

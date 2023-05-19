@@ -14,24 +14,32 @@ namespace Game.Classes
 
         private int enemyX;
         private int enemyY;
+        private bool enemyExists = true;
 
         private int shopX;
         private int shopY;
 
         private char[,] originalMap;
         private char[,] currentMap;
-        private char[] forbiddenChars = new char[] { '=', ']', '['};
+        private char[] forbiddenChars = new char[] { '=', ']', '[', '|', '_', '/', '°'};
 
         private bool collision;
+        private int collisionType;
 
         public bool Collision
         {
             get { return collision; }
             private set
             {
-                if (posX == enemyX - 2)
+                if (posX == enemyX - 3 && enemyExists)
                 {
                     collision = true;
+                    collisionType = 1;
+                }
+                else if (posX == shopX + 4)
+                {
+                    collision = true;
+                    collisionType = 2;
                 }
                 else collision = false;
             }
@@ -47,7 +55,7 @@ namespace Game.Classes
             DrawEnemy();
         }
 
-        public void StartMap(Battle battle)
+        public void StartMap(Battle battle, Shop shop)
         {
             while (true)
             {
@@ -55,12 +63,17 @@ namespace Game.Classes
 
                 DrawMap();
 
-                if (!battle._enemyDefeated)
-                {
-                    Collision = false;
-                }
 
-                if (collision)
+
+                if (battle._enemyDefeated)
+                {
+                    enemyExists = false;
+                }
+                Collision = false;
+                
+
+
+                if (collision && collisionType == 1)
                 {
                     battle.Begin();
                     if (battle._enemyDefeated)
@@ -71,6 +84,11 @@ namespace Game.Classes
                         DrawShop();
                     }
                 }
+                if (collision && collisionType == 2)
+                {
+                    shop.Open();
+                }
+
 
                 ConsoleKeyInfo keyInfo;
                 keyInfo = Console.ReadKey(true);
@@ -260,7 +278,9 @@ namespace Game.Classes
         //Mozgás lekezelések
         public void MoveLeft()
         {
-            if (forbiddenChars.Contains(currentMap[posX - 2, posY]) == false)
+            if (forbiddenChars.Contains(currentMap[posX - 2, posY]) == false
+                && forbiddenChars.Contains(currentMap[posX - 2, posY + 1]) == false
+                && forbiddenChars.Contains(currentMap[posX - 2, posY + 2]) == false)
             {
                 RemoveChar();
                 posX--;
@@ -270,7 +290,9 @@ namespace Game.Classes
 
         public void MoveRight()
         {
-            if (forbiddenChars.Contains(currentMap[posX + 2, posY]) == false)
+            if (forbiddenChars.Contains(currentMap[posX + 2, posY]) == false
+                && forbiddenChars.Contains(currentMap[posX + 2, posY + 1]) == false
+                && forbiddenChars.Contains(currentMap[posX + 2, posY + 2]) == false)
             {
                 RemoveChar();
                 posX++;

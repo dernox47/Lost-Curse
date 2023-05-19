@@ -86,10 +86,7 @@ namespace Game.Classes
                     {
                         Console.WriteLine();
                     }
-                    else
-                    {
-                        Console.Write("\t");
-                    }
+                    else Console.Write("\t");
                 }
                 Console.WriteLine();
             }

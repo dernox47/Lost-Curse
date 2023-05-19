@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Game.Classes.Items;
+using Game.Interfaces.Items;
 using Game.Interfaces.Other;
 
 namespace Game.Classes
@@ -112,15 +114,36 @@ namespace Game.Classes
                 //story.Print("BeforeGuildFight");
 
 
+                Apple apple = new Apple();
+                Bread bread = new Bread();
+                Bread bread1 = new Bread();
+                Bread bread2 = new Bread();
+                Bread bread3 = new Bread();
+                Bread bread4 = new Bread();
+                HpPotion hpPotion = new HpPotion();
+
+                Dictionary<IItem, int> initialStockGuild = new Dictionary<IItem, int>()
+                {
+                    { apple, 5 },
+                    { bread, 6 },
+                    { bread1, 6 },
+                    { bread2, 6 },
+                    //{ bread3, 6 },
+                    //{ bread4, 6 },
+                    //{ hpPotion, 4 }
+                };
+
+                Shop guildShop = new Shop(initialStockGuild, player);
+
                 Movement movement;
                 movement = new Movement("mapGuildTest.txt");
                 Enemy enemy = new Enemy("Adventurer", 10, 80, 10, 0, 1, 10, 0);
                 Battle adventurerBattle = new Battle(player, enemy);
 
 
-                movement.StartMap(adventurerBattle);
-            
-            
+                movement.StartMap(adventurerBattle, guildShop);
+
+
 
 
                 //Győzelem után
