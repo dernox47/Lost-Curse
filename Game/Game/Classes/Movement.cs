@@ -9,6 +9,8 @@ namespace Game.Classes
 {
     class Movement
     {
+        static PressKey pressKey = new PressKey();
+
         private int posX;
         private int posY;
 
@@ -55,14 +57,13 @@ namespace Game.Classes
             DrawEnemy();
         }
 
-        public void StartMap(Battle battle, Shop shop)
+        public void StartMap(Battle battle, Shop shop = null)
         {
             while (true)
             {
-                Console.CursorVisible = false;
+                ConsoleKeyInfo keyInfo;
 
                 DrawMap();
-
 
 
                 if (battle._enemyDefeated)
@@ -84,14 +85,36 @@ namespace Game.Classes
                         DrawShop();
                     }
                 }
+
+
+
                 if (collision && collisionType == 2 && battle._enemyDefeated)
                 {
-                    shop.Open();
+                    Console.WriteLine("Press [E] to enter shop...");
+                    Console.WriteLine("[Esc] to continue...");
+                    while (true)
+                    {
+                        ConsoleKeyInfo keyInfoInner = Console.ReadKey(true);
+                        Console.CursorVisible = false;
+
+                        if (keyInfoInner.Key == ConsoleKey.E)
+                        {
+                            shop.Open();
+                            break;
+                        }
+                        else if (keyInfoInner.Key == ConsoleKey.Escape)
+                        {
+                            break;
+                        }
+                    }
+                    MoveRight();
+                    Console.Clear();
+                    DrawMap();
                 }
 
 
-                ConsoleKeyInfo keyInfo;
                 keyInfo = Console.ReadKey(true);
+                Console.CursorVisible = false;
 
                 switch (keyInfo.Key)
                 {

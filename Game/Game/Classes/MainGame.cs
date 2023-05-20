@@ -11,7 +11,7 @@ namespace Game.Classes
 {
     class MainGame : IGame
     {
-        static PressEnter pressEnter = new PressEnter();
+        static PressKey pressEnter = new PressKey();
 
         private bool playing = true;
 

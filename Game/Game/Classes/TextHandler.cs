@@ -9,7 +9,7 @@ namespace Game.Classes
 {
     class TextHandler
     {
-        static PressEnter pressEnter = new PressEnter();
+        static PressKey pressKey = new PressKey();
 
         private Dictionary<string, string[]> texts = new Dictionary<string, string[]>();
 
@@ -69,11 +69,11 @@ namespace Game.Classes
                 }
                 Console.WriteLine("\n");
 
-                pressEnter.ToContinue();
+                pressKey.Enter();
             }
 
             Console.WriteLine("Press [enter] to continue... ");
-            pressEnter.ToContinue();
+            pressKey.Enter();
 
             Console.Clear();
         }

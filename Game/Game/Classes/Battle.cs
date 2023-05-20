@@ -10,7 +10,7 @@ namespace Game.Classes
 {
     class Battle
     {
-        static PressEnter pressEnter = new PressEnter();
+        static PressKey pressKey = new PressKey();
         private Player _player { get; set; }
         private Enemy _enemy { get; set; }
         private bool _isPlayerTurn;
@@ -36,7 +36,7 @@ namespace Game.Classes
             Console.ResetColor();
             Console.WriteLine("Press [enter] to start the fight...");
 
-            pressEnter.ToContinue();
+            pressKey.Enter();
 
             while (!_isBattleOver)
             {
@@ -97,6 +97,7 @@ namespace Game.Classes
                 _isBattleOver = true;
                 _enemyDefeated = true;
                 Console.WriteLine("Press [enter] to continue...");
+                pressKey.Enter();
             }
         }
 
@@ -111,7 +112,7 @@ namespace Game.Classes
             Console.SetCursorPosition(0, 0);
             Console.Write($"{_player.Name} ({_player.Hp}/{_player.MaxHp})\t{_enemy.Name} ({_enemy.Hp}/{_enemy.MaxHp})\n", Console.ForegroundColor = ConsoleColor.Red);
             Console.ResetColor();
-            pressEnter.ToContinue();
+            pressKey.Enter();
 
 
             if (!_player.IsAlive())
@@ -136,6 +137,7 @@ namespace Game.Classes
 
         private void Rewards()
         {
+            Console.WriteLine();
             if (_enemy.Exp != 0)
             {
                 Console.WriteLine($"+{_enemy.Exp} XP");
@@ -144,6 +146,7 @@ namespace Game.Classes
             {
                 Console.WriteLine($"+{_enemy.Gold} Gold");
             }
+            Console.WriteLine();
         }
 
     }

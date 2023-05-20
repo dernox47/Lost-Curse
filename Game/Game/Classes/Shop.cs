@@ -166,10 +166,8 @@ namespace Game.Classes
                         }
                         break;
                     case ConsoleKey.Escape:
-                        return; // Exit the program if Escape is pressed
+                        return;
                 }
-
-
             }
         }
     }

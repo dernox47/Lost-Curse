@@ -28,3 +28,8 @@ AfterGuildFight
 Congratulations you passed the test.
 There are 8 adventurer ranks. Slave, Peasant, Soldier, Warrior, Knight, Lord, Emperor, Hero and Legend.
 You start as a Slave rank and rank up after doing quests.
+#
+FirstQuests
+@
+Feeling victorious, you decided to accept your first quest.
+Here are some quests that you can accept:

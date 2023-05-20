@@ -52,7 +52,7 @@
     <Compile Include="Classes\MainGame.cs" />
     <Compile Include="Classes\Movement.cs" />
     <Compile Include="Classes\Player.cs" />
-    <Compile Include="Classes\PressEnter.cs" />
+    <Compile Include="Classes\PressKey.cs" />
     <Compile Include="Classes\Shop.cs" />
     <Compile Include="Classes\Sprites.cs" />
     <Compile Include="Classes\TextHandler.cs" />
