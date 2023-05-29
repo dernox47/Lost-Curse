@@ -11,7 +11,7 @@ namespace Game.Classes
 {
     class MainGame : IGame
     {
-        static PressKey pressEnter = new PressKey();
+        static PressKey pressKey = new PressKey();
 
         private bool playing = true;
 
@@ -41,8 +41,8 @@ namespace Game.Classes
                 //story.Print("BackgroundStory");
                 //story.Print("GuildStart");
 
-                //Guild teszt kérdések
-                bool allAnswerCorrect = false;
+                ////Guild teszt kérdések
+                //bool allAnswerCorrect = false;
 
                 //while (!allAnswerCorrect)
                 //{
@@ -61,7 +61,7 @@ namespace Game.Classes
                 //        Console.WriteLine("\nSlimes are weak against fire and can easily burn but water or swords can only damage it a little.");
                 //    }
                 //    Console.WriteLine("\nPress [enter] to continue...");
-                //    pressEnter.ToContinue();
+                //    pressKey.Enter();
                 //    Console.Clear();
 
                 //    Console.WriteLine("The second question is:");
@@ -77,7 +77,7 @@ namespace Game.Classes
                 //        Console.WriteLine("\nGoblins are very cunning creatures that lay traps and attack when the adventurers don't expect it.");
                 //    }
                 //    Console.WriteLine("\nPress [enter] to continue...");
-                //    pressEnter.ToContinue();
+                //    pressKey.Enter();
                 //    Console.Clear();
 
                 //    Console.WriteLine("The third question is:");
@@ -93,20 +93,20 @@ namespace Game.Classes
                 //        Console.WriteLine("\nWhen fighting a strong monster you shouldn't show your back and you should escape while watching it.");
                 //    }
                 //    Console.WriteLine("\nPress [enter] to continue...");
-                //    pressEnter.ToContinue();
+                //    pressKey.Enter();
                 //    Console.Clear();
 
                 //    if (firstQuestion == 3 && secondQuestion == 3 && thirdQuestion == 2)
                 //    {
                 //        Console.WriteLine("Congratulation! You passed the test.");
                 //        allAnswerCorrect = true;
-                //        pressEnter.ToContinue();
+                //        pressKey.Enter();
                 //    }
                 //    else
                 //    {
                 //        Console.WriteLine("You failed the test, please try again.");
                 //        Console.WriteLine("\nPress [enter] to continue...");
-                //        pressEnter.ToContinue();
+                //        pressKey.Enter();
                 //    }
                 //    Console.Clear();
                 //}

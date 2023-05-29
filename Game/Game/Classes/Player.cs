@@ -32,7 +32,7 @@ namespace Game.Classes
             Level = 1;
             Exp = 0;
             MaxExp = 100;
-            Gold = 100;
+            Gold = 1;
         }
 
         public void Attack(IEnemy target)

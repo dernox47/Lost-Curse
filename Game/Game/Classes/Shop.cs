@@ -11,6 +11,7 @@ namespace Game.Classes
 {
     class Shop : IShop
     {
+        static PressKey pressKey = new PressKey();
         public string Name { get; set; }
         public string Description { get; set; }
         public Dictionary<IItem, int> Stock { get; set; }
@@ -28,14 +29,18 @@ namespace Game.Classes
         {
             if (!Stock.ContainsKey(item) || Stock[item] < quantity)
             {
-                Console.WriteLine("There isn't enough in the shop.");
+                Console.WriteLine("\nThere isn't enough in the shop.");
+                Console.WriteLine("Press [Enter] to continue...");
+                pressKey.Enter();
                 return;
             }
 
             int totalPrice = item.Value * quantity;
             if (player.Gold < totalPrice)
             {
-                Console.WriteLine("You don't have enough gold.");
+                Console.WriteLine("\nYou don't have enough gold.");
+                Console.WriteLine("Press [Enter] to continue...");
+                pressKey.Enter();
                 return;
             }
 
@@ -43,14 +48,18 @@ namespace Game.Classes
             player.inventory.AddItem(item, quantity);
 
             Stock[item] -= quantity;
-            Console.WriteLine($"Added to your inventory: {quantity} {item.Name}");
+            Console.WriteLine($"\nAdded to your inventory: {quantity} {item.Name}");
+            Console.WriteLine("Press [Enter] to continue...");
+            pressKey.Enter();
         }
 
         public void SellItem(IItem item, int quantity)
         {
             if (!player.inventory.items.ContainsKey(item) || player.inventory.items[item] < quantity)
             {
-                Console.WriteLine("You dont have enough in your inventory.");
+                Console.WriteLine("\nYou dont have enough in your inventory.");
+                Console.WriteLine("Press [Enter] to continue...");
+                pressKey.Enter();
                 return;
             }
 
@@ -68,46 +77,51 @@ namespace Game.Classes
                 Stock[item] = quantity;
             }
 
-            Console.WriteLine($"You sold {quantity} {item.Name}");
+            Console.WriteLine($"\nYou sold {quantity} {item.Name}");
+            Console.WriteLine("Press [Enter] to continue...");
+            pressKey.Enter();
         }
 
         public void Open()
         {
             int currentX = 0;
             int currentY = 0;
+
+            int currentIndex;
             string[,] grid = new string[Convert.ToInt32(Math.Ceiling(Stock.Count / 3.0)), 3];
-
-            int gridX = 0;
-            int gridY = 0;
-            foreach (KeyValuePair<IItem, int> item in Stock)
-            {
-                grid[gridY, gridX] = $"{item.Key.Name}({item.Value}) {item.Key.Value} gold";
-                gridX++;
-                if (gridX % 3 == 0)
-                {
-                    gridY++;
-                    gridX = 0;
-                }
-            }
-
-
-            if (Stock.Count % 3 != 0)
-            {
-                if (Stock.Count % 3 == 1)
-                {
-                    grid[Stock.Count / 3, 1] = " ";
-                    grid[Stock.Count / 3, 2] = " ";
-                }
-                else if (Stock.Count % 3 == 2)
-                {
-                    grid[Convert.ToInt32(Math.Ceiling(Stock.Count / 3.0) - 1), 2] = " ";
-                }
-            }
 
             while (true)
             {
+                int gridX = 0;
+                int gridY = 0;
+                foreach (KeyValuePair<IItem, int> item in Stock)
+                {
+                    grid[gridY, gridX] = $"{item.Key.Name}({item.Value}) {item.Key.Value} gold";
+                    gridX++;
+                    if (gridX % 3 == 0)
+                    {
+                        gridY++;
+                        gridX = 0;
+                    }
+                }
+
+
+                if (Stock.Count % 3 != 0)
+                {
+                    if (Stock.Count % 3 == 1)
+                    {
+                        grid[Stock.Count / 3, 1] = " ";
+                        grid[Stock.Count / 3, 2] = " ";
+                    }
+                    else if (Stock.Count % 3 == 2)
+                    {
+                        grid[Convert.ToInt32(Math.Ceiling(Stock.Count / 3.0) - 1), 2] = " ";
+                    }
+                }
+
                 Console.Clear();
 
+                currentIndex = currentX + (currentY * 3);
                 int count = 0;
                 for (int y = 0; y < Convert.ToInt32(Math.Ceiling(Stock.Count / 3.0)); y++)
                 {
@@ -134,6 +148,10 @@ namespace Game.Classes
                     }
                 }
                 Console.WriteLine();
+                Console.WriteLine(currentX + " " + currentY);
+                Console.WriteLine(currentIndex);
+                Console.WriteLine("Press [E] to buy...");
+                Console.WriteLine("Press [Esc] to exit...");
                 
 
                 ConsoleKeyInfo keyInfo = Console.ReadKey(true);
@@ -163,6 +181,18 @@ namespace Game.Classes
                         if (currentY < Convert.ToInt32(Math.Ceiling(Stock.Count / 3.0)) - 1 && grid[currentY + 1, currentX] != " ")
                         {
                             currentY++;
+                        }
+                        break;
+                    case ConsoleKey.E:
+                        Console.Write("Quantity: ");
+                        int quantity = int.Parse(Console.ReadLine());
+                        string[] splitItemName = grid[currentY, currentX].Split(' ');
+                        for (int i = 0; i < Stock.Count; i++)
+                        {
+                            if (i == currentIndex)
+                            {
+                                BuyItem(Stock.ElementAt(i).Key, quantity);
+                            }
                         }
                         break;
                     case ConsoleKey.Escape:
