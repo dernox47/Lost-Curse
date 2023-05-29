@@ -148,8 +148,6 @@ namespace Game.Classes
                     }
                 }
                 Console.WriteLine();
-                Console.WriteLine(currentX + " " + currentY);
-                Console.WriteLine(currentIndex);
                 Console.WriteLine("Press [E] to buy...");
                 Console.WriteLine("Press [Esc] to exit...");
                 
