@@ -1,0 +1,35 @@
+BackgroundStory
+@
+He grew up in a small city in the western desert.
+His family owned some land on the northern part of the desert next to some mountains and a river.
+When he was around 8 years old his parents and his sister were killed by a monster while they were traveling in a carriage.
+He stayed at home, so he became the last person in the family.
+After hearing the news of his parents’ death his distant relatives all went there to get the land.
+He couldn't do anything, and he was kicked out.
+He could only sneak out a few of the items that his father owned, which included their family heirloom, a dagger, clothes and some food.
+He started to train to get stronger.
+He lived on the streets or stayed in the mountains.
+He could only eat food that he got for free or some small animals thet he caught.
+#
+GuildStart
+@
+When he turned 14, he became old enough to finally join the adventurers’ guild.
+Before he could enter the guild, he had to pass the tests.
+The first test tested his knowledge about monsters and adventurers.
+#
+BeforeGuildFight
+@
+The second test is a fight against an adventurer.
+You don't have to win the fight you just have to prove that you are able to fight.
+If you pass this test you can join the guild and accept quests.
+#
+AfterGuildFight
+@
+Congratulations you passed the test.
+There are 8 adventurer ranks. Slave, Peasant, Soldier, Warrior, Knight, Lord, Emperor, Hero and Legend.
+You start as a Slave rank and rank up after doing quests.
+#
+FirstQuests
+@
+Feeling victorious, you decided to accept your first quest.
+Here are some quests that you can accept:

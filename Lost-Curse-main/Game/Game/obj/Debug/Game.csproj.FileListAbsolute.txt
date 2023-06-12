@@ -1,0 +1,35 @@
+E:\VS repok\Lost-Curse-main\Game\Game\bin\Debug\Game.exe.config
+E:\VS repok\Lost-Curse-main\Game\Game\bin\Debug\Game.exe
+E:\VS repok\Lost-Curse-main\Game\Game\bin\Debug\Game.pdb
+E:\VS repok\Lost-Curse-main\Game\Game\obj\Debug\Game.csproj.AssemblyReference.cache
+E:\VS repok\Lost-Curse-main\Game\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
+E:\VS repok\Lost-Curse-main\Game\Game\obj\Debug\Game.exe
+E:\VS repok\Lost-Curse-main\Game\Game\obj\Debug\Game.pdb
+D:\yon\Game\Game\Game\bin\Debug\Game.exe.config
+D:\yon\Game\Game\Game\bin\Debug\Game.exe
+D:\yon\Game\Game\Game\bin\Debug\Game.pdb
+D:\yon\Game\Game\Game\obj\Debug\Game.csproj.AssemblyReference.cache
+D:\yon\Game\Game\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
+D:\yon\Game\Game\Game\obj\Debug\Game.exe
+D:\yon\Game\Game\Game\obj\Debug\Game.pdb
+D:\úgykbminden\GitHub\Lost-Curse\Game\Game\bin\Debug\Game.exe.config
+D:\úgykbminden\GitHub\Lost-Curse\Game\Game\bin\Debug\Game.exe
+D:\úgykbminden\GitHub\Lost-Curse\Game\Game\bin\Debug\Game.pdb
+D:\úgykbminden\GitHub\Lost-Curse\Game\Game\obj\Debug\Game.csproj.AssemblyReference.cache
+D:\úgykbminden\GitHub\Lost-Curse\Game\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
+D:\úgykbminden\GitHub\Lost-Curse\Game\Game\obj\Debug\Game.exe
+D:\úgykbminden\GitHub\Lost-Curse\Game\Game\obj\Debug\Game.pdb
+C:\Users\Márk\Desktop\Lost-Curse-main\Game\Game\bin\Debug\Game.exe.config
+C:\Users\Márk\Desktop\Lost-Curse-main\Game\Game\bin\Debug\Game.exe
+C:\Users\Márk\Desktop\Lost-Curse-main\Game\Game\bin\Debug\Game.pdb
+C:\Users\Márk\Desktop\Lost-Curse-main\Game\Game\obj\Debug\Game.csproj.AssemblyReference.cache
+C:\Users\Márk\Desktop\Lost-Curse-main\Game\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
+C:\Users\Márk\Desktop\Lost-Curse-main\Game\Game\obj\Debug\Game.exe
+C:\Users\Márk\Desktop\Lost-Curse-main\Game\Game\obj\Debug\Game.pdb
+C:\Users\Suli\Desktop\Lost-Curse-main\Game\Game\bin\Debug\Game.exe.config
+C:\Users\Suli\Desktop\Lost-Curse-main\Game\Game\bin\Debug\Game.exe
+C:\Users\Suli\Desktop\Lost-Curse-main\Game\Game\bin\Debug\Game.pdb
+C:\Users\Suli\Desktop\Lost-Curse-main\Game\Game\obj\Debug\Game.csproj.AssemblyReference.cache
+C:\Users\Suli\Desktop\Lost-Curse-main\Game\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
+C:\Users\Suli\Desktop\Lost-Curse-main\Game\Game\obj\Debug\Game.exe
+C:\Users\Suli\Desktop\Lost-Curse-main\Game\Game\obj\Debug\Game.pdb
